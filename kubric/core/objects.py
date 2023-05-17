@@ -279,3 +279,16 @@ class FileBasedObject(PhysicalObject):
   render_import_kwargs = tl.Dict(key_trait=tl.ObjectName())
 
   # TODO: trigger error when changing filenames or asset-id after the fact
+
+"""
+  Added for my project
+"""
+class Circle(PhysicalObject):
+  @tl.default("bounds")
+  def _get_bounds_default(self):
+    return (-1, -1, -1), (1, 1, 1)
+  
+class Cylinder(PhysicalObject):
+  @tl.default("bounds")
+  def _get_bounds_default(self):
+    return (-1, -1, -1), (1, 1, 1)

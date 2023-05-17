@@ -730,6 +730,36 @@ class Blender(core.View):
 
   def _convert_to_blender_object(self, asset: core.Asset):
     return asset.linked_objects[self]
+  
+  """
+    Added for my project
+  """
+  @add_asset.register(core.Circle)
+  @blender_utils.prepare_blender_object
+  def _add_asset(self, asset: core.Circle):
+    bpy.ops.mesh.primitive_circle_add()
+    circle = bpy.context.active_object
+
+    register_object3d_setters(asset, circle)
+    asset.observe(AttributeSetter(circle, "active_material",
+                                  converter=self._convert_to_blender_object), "material")
+    asset.observe(AttributeSetter(circle, "scale"), "scale")
+    asset.observe(KeyframeSetter(circle, "scale"), "scale", type="keyframe")
+    return circle
+  
+  @add_asset.register(core.Cylinder)
+  @blender_utils.prepare_blender_object
+  def _add_asset(self, asset: core.Cylinder):
+    bpy.ops.mesh.primitive_cylinder_add()
+    circle = bpy.context.active_object
+
+    register_object3d_setters(asset, circle)
+    asset.observe(AttributeSetter(circle, "active_material",
+                                  converter=self._convert_to_blender_object), "material")
+    asset.observe(AttributeSetter(circle, "scale"), "scale")
+    asset.observe(KeyframeSetter(circle, "scale"), "scale", type="keyframe")
+    return circle
+
 
 
 class AttributeSetter:

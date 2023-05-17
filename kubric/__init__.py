@@ -52,6 +52,12 @@ from kubric.core.objects import Sphere
 from kubric.core.objects import Cube
 from kubric.core.objects import FileBasedObject
 
+"""
+    Added for my project
+"""
+from kubric.core.objects import Circle
+from kubric.core.objects import Cylinder
+
 from kubric.kubric_typing import AddAssetFunction
 from kubric.kubric_typing import PathLike
 
