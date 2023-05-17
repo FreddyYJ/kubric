@@ -283,12 +283,20 @@ class FileBasedObject(PhysicalObject):
 """
   Added for my project
 """
-class Circle(PhysicalObject):
+class SimplePhysicalObject(PhysicalObject):
   @tl.default("bounds")
   def _get_bounds_default(self):
     return (-1, -1, -1), (1, 1, 1)
   
-class Cylinder(PhysicalObject):
-  @tl.default("bounds")
-  def _get_bounds_default(self):
-    return (-1, -1, -1), (1, 1, 1)
+class Circle(SimplePhysicalObject):
+  pass
+class Cylinder(SimplePhysicalObject):
+  pass
+class Torus(SimplePhysicalObject):
+  pass
+class Suzanne(SimplePhysicalObject):
+  pass
+class IcoSphere(SimplePhysicalObject):
+  pass
+class Cone(SimplePhysicalObject):
+  pass
