@@ -52,3 +52,12 @@ class RectAreaLight(Light):
 
 class PointLight(Light):
   pass
+
+
+"""
+Added for my project
+"""
+class AreaLight(RectAreaLight):
+  pass
+class SunLight(Light):
+  angle=tl.Float(0.00918043)  # Default of Blender
